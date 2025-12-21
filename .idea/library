@@ -1,0 +1,35 @@
+public class Book {
+    private String title;
+    private boolean isLoaned;
+
+    public Book(String title) {
+        this.title = title;
+        this.isLoaned = false; // Кітап бастапқыда жалға берілмеген
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public boolean isLoaned() {
+        return isLoaned;
+    }
+
+    public void markLoanedTo(Member member) {
+        if (isLoaned) {
+            System.out.println("Book is already loaned.");
+        } else {
+            this.isLoaned = true;
+            System.out.println(member.getName() + " has borrowed " + title);
+        }
+    }
+
+    public void returnBook() {
+        if (!isLoaned) {
+            System.out.println("Book wasn't loaned.");
+        } else {
+            this.isLoaned = false;
+            System.out.println("Book returned: " + title);
+        }
+    }
+}
